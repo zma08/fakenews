@@ -1,0 +1,34 @@
+﻿@model IEnumerable<HelloWorld.Models.Article>
+@ViewBag.message
+
+
+<div class="jumbotron">
+    <h1 id="hello">Article <span id="fibs">Fibs</span></h1>
+    <p class="lead text-success">
+        Article Fibs is the place to look up news that isn't news. You'll find all of those bizzare and random
+        stories here. You can even make your own!
+    </p>
+    
+    <a id="click" href="#" class="btn btn-danger btn-lg">click me</a>
+</div>
+
+
+<h1>Welcome to ArticleFibs!</h1>
+<p>The goal of this site is to allow a creative outlet for people to create whatever kind of news story they want. The goal is purely entertainment
+    and <strong>should not</strong> be used as a source of news. Please feel free to explore and start contributing today!</p>
+
+<h2></h2>
+@foreach(var item in Model)
+{
+    <table>
+        <tr>
+            <td>
+                @Html.ActionLink(item.Title,"ArticleView",new { id = item.Id }))
+            </td>
+        </tr>
+    </table>
+}
+
+@section Myscript{<script src="~/Scripts/Myscript.js"></script>}
+
+@Html.ActionLink("Create Article", "ArticleCreate", "Home")

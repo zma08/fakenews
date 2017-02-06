@@ -1,0 +1,14 @@
+﻿@model HelloWorld.Models.Article
+
+@{
+    ViewBag.Title = "ArticleView";
+}
+
+
+<h1>
+    @Html.DisplayFor(model => model.Title)
+</h1>
+
+<p>
+    @Html.DisplayFor(model => model.Content)
+</p>

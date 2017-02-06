@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Hello World</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+
+                <!-- Drop Down Menu -->
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Navigation
+                        <span class="caret"></span>
+                    </button>
+                    <!-- Need to change the name of the controller and views used. Right now they're all set to Index, Home.-->
+                    <!-- Change color using CSS.-->
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Write Article", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About Us", "Index", "Home")</li>
+                        <li role="separator" class="divider"></li>
+                        <li>@Html.ActionLink("Contact", "Index", "Home")</li>
+                    </ul>
+                </div>
+                <!-- Drop Down Menu End -->
+               
+            </div>
+
+            <!-- Search bar.-->
+            <div class="collapse navbar-collapse">
+                @using (Html.BeginForm("Search", "Home", FormMethod.Get))
+                {
+                    <ul class="nav navbar-nav" style="float: right;margin:8px">
+                        <li><input class="nav navbar-nav pull-right" type="search" name="key" /></li>
+                        <li><input type="submit" value="Search by Title" class="btn btn-sm btn-success" style="margin-left:10px" /></li>
+                    </ul>
+                }
+            </div>
+            <!-- Search bar end.-->
+
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("Myscript", required: false)
+</body>
+</html>

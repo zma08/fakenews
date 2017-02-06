@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "ArticleCreate";
+}
+
+<script>
+    function Insert(emoji) {
+        console.log("inserting " + emoji);
+
+        var articleBody = document.getElementById("body").value;
+        articleBody += emoji;
+        document.getElementById("body").value = articleBody;
+    }
+
+    function InsertSmiley() {
+        Insert(":)");
+    }
+
+    function InsertFrowney() {
+        Insert(":(");
+    }
+
+    function InsertD() {
+        Insert(":D");
+    }
+
+    function InsertMoon() {
+        Insert("THE MOON LANDING WAS A HOAX.");
+    }
+
+    function InsertLiberal() {
+        Insert("LIBERAL MEDIA BIAS");
+    }
+
+    function InsertConservative() {
+        Insert("CONSERVATIVE MEDIA BIAS");
+    }
+
+    function Submit() {
+        console.log("submitting");
+
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            url: "/Home/SubmitArticle/",
+            data: { title: "HEY", body: "body"},
+        });
+    }
+</script>
+
+<h2>Create an article</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="comment">Title:</label>
+        <textarea class="form-control" rows="5" id="title" name="title"></textarea>
+    </div>
+
+    <div class="form-group">
+
+        <label for="body">Body:</label>
+        <textarea class="form-control" rows="5" id="body" name="body"></textarea>
+        <div class="btn-group">
+            <button type="button" class="btn btn-default" id="bold" onclick="InsertSmiley()">:)</button>
+            <button type="button" class="btn btn-default" id="italics" onclick="InsertFrowney()">:(</button>
+            <button type="button" class="btn btn-default" id="underline" onclick="InsertD()">:D</button>
+            <button type="button" class="btn btn-default" id="underline" onclick="InsertMoon()">Moon</button>
+            <button type="button" class="btn btn-default" id="underline" onclick="InsertLiberal()">Liberal</button>
+            <button type="button" class="btn btn-default" id="underline" onclick="InsertConservative()">Conservative</button>
+        </div>
+
+        <h2></h2>
+        <h2></h2>
+
+    </div>
+   
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>
