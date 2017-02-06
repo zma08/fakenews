@@ -179,6 +179,7 @@
     <Content Include="Views\Home\ArticleCreate.cshtml" />
     <Content Include="Views\Home\ArticleView.cshtml" />
     <Content Include="Views\Home\AboutUs.cshtml" />
+    <Content Include="source.config" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
