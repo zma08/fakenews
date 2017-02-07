@@ -15,7 +15,7 @@ namespace HelloWorld.Controllers
         ZdContext zd = new ZdContext();
         public ActionResult Index()
         {
-            ViewBag.message = ConfigurationManager.ConnectionStrings["ZdContext"].ConnectionString;
+            //ViewBag.message = ConfigurationManager.ConnectionStrings["ZdContext"].ConnectionString;
             return View(zd.Articles.ToList());
         }
 
